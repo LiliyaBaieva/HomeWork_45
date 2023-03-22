@@ -42,4 +42,20 @@ public class Book implements Comparable<Book>{
   }
 
 
+  // Для теста
+  public static  Book readBook() throws IOException{
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    System.out.print("Введите автора книги: ");
+    String author = br.readLine();
+    System.out.print("Введите название книги: ");
+    String bookName = br.readLine();
+    System.out.print("Введите количество страниц в книге: ");
+    int pages = Integer.parseInt(br.readLine());
+    return new Book(author, bookName,pages);
+  }
+
+  @Override
+  public String toString() {
+    return author + ", \"" + bookName + "\", (" + pages + " стр.)";
+  }
 }
