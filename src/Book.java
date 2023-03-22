@@ -1,9 +1,13 @@
-public class Book {
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Book implements Comparable<Book>{
   private String author;
   private String bookName;
   private int pages;
 
-  public Book(String author, String bookName, int pages){
+  public Book (String author, String bookName, int pages){
     this.author = author;
     this.bookName = bookName;
     this.pages = pages;
@@ -27,6 +31,14 @@ public class Book {
   }
   public int getPages() {
     return pages;
+  }
+
+  @Override
+  public int compareTo(Book other) {
+    if(author != other.author){
+      return author.compareTo(other.author);
+    }
+    return bookName.compareTo(other.bookName);
   }
 
 
